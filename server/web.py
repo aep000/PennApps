@@ -33,12 +33,19 @@ def hello_monkey():
     except twilio.TwilioRestException as e:
 	print e
 
-@app.route("/call", methods=['GET', 'POST'])
+@app.route("/register", methods=['GET', 'POST'])
 def register():
 	register_info = request.data
 	Datadict = json.loads(data)
 	out =  {'username': Datadict['username'], 'password': Datadict['password']}
 	sq.register(out)
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+	login_info = request.data
+	Datadict = json.loads(login_info)
+	out =  {'username': Datadict['username'], 'password': Datadict['password']}
+	return sq.login(out)
 	
 #('Username', 'Password')
 	
