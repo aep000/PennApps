@@ -1,6 +1,8 @@
 import goslate
 import cleverbot
 
+#TODO implement languages later
+
 def from_latin(to_translate):
 	target_language = "en"
 	source_language='la'
