@@ -42,6 +42,7 @@ def register():
 	out =  {'username': Datadict['username'], 'password': Datadict['password']}
 	return sq.register(out)
 	#return jsonify(results={"status":200})
+	sq.register(out)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -49,7 +50,6 @@ def login():
 	Datadict = json.loads(login_info)
 	out =  {'username': Datadict['username'], 'password': Datadict['password']}
 	return sq.login(out)
-
 	
 #('Username', 'Password')
 	
