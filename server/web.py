@@ -7,7 +7,7 @@ import sqliteutils
 HOST = '127.0.0.1'
 #PORT = int(os.environ.get('PORT', 80))
 #PORT = int(os.environ['PORT'])
-PORT = int(os.environ.get('PORT', 5000))
+PORT = int(os.environ.get('PORT', 80))
 
 DEBUG_MODE = True
  
@@ -33,10 +33,11 @@ def hello_monkey():
     except twilio.TwilioRestException as e:
 	print e
 
-@app.route("/register", methods = ['POST', 'GET']):
+@app.route("/call", methods=['GET', 'POST'])
+def register():
 	register_info = request.data
 	Datadict = json.loads(data)
-	out =  {'username': Datadict['username'] : 'username', 'password': Datadict['password']}
+	out =  {'username': Datadict['username'], 'password': Datadict['password']}
 	sq.register(out)
 	
 #('Username', 'Password')
@@ -49,6 +50,6 @@ if __name__ == "__main__":
 '''
 
 def go_run():
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 80))
     app.run(host='0.0.0.0', port=port)
-
+go_run()
