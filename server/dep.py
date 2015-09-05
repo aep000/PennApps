@@ -4,13 +4,15 @@ import MySQLdb as mdb
 app = Flask(__name__)
 def dbquery(query):
 	con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
-	mysql_cursor = con.cursor(mdb.cursors.DictCursor)
+	cur = con.cursor(mdb.cursors.DictCursor)
+	cur.execute(query)
 	results =  cur.fetchall()
 	con.close()
 	return results
 def dbinsert(query):
         con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
-        mysql_cursor = con.cursor(mdb.cursors.DictCursor)
+        cur = con.cursor(mdb.cursors.DictCursor)
+	cur.execute(query)
         results =  cur.fetchall()
 	con.commit()
         con.close()
@@ -23,8 +25,10 @@ def storemessage():
 	message = Datadict['message']
 	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = "+cid
 	retval = dbquery(query)
-	query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+retval+", "+message+", "+stype+", "+cid+")"
+	print retval[0]['max(messagenumber)']
+	query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+str(retval[0]['max(messagenumber)']+1)+", '"+message+"', '"+stype+"', "+str(cid)+")"
 	dbinsert(query)
+	return "ok"
 @app.route("/getmessage", methods=['GET', 'POST'])
 def retmessages():
 	start = request.values.get('start', None)
