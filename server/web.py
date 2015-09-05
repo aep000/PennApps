@@ -4,7 +4,7 @@ import twilio.twiml
 import os
 import goslate
 import sqliteutils as sq
-
+import MySQLdb as mdb
 HOST = '45.79.138.244'
 #PORT = int(os.environ.get('PORT', 80))
 #PORT = int(os.environ['PORT'])
@@ -25,7 +25,7 @@ def hello_monkey():
     """Respond and greet the caller by name."""
     try:
 	    body = request.values.get('Body', None)
-        from_number = request.values.get('From', None)
+ 	    from_number = request.values.get('From', None)
 
 	    message = cbot(body)
 	    resp = twilio.twiml.Response()
@@ -46,19 +46,22 @@ def register():
 def doclist():
 	register_info = request.data
 	Datadict = json.loads(register_info)
-	start=Datadict['amount']
-	specialty = Datadict['special']
+	amount=Datadict['amount']
+	uid = Datadict['uid']
 	tot ="{"
-	query="SELECT * FROM conversations WHERE ID > max(ID)-"+amount+" ORDER BY ID DESC"
+	query="SELECT * FROM conversations ORDER BY ID DESC"
 	retval = dbquery(query)
 	c=0
 	for conv in retval:
-		query= "SELECT * FROM messages WHERE conversationID = "+str(conv['ID'])
-		retval2 = dbquery(query)
-		if len(retval2) = 1:
-			query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
-			retval3 = dbquery(query)
-			tot += '"'str(c)+'": { "question": "'+conv[question]+'", "sendername": "'+retval3[0]['name']+'"},'
+		if(c < int(amount)):
+			query= "SELECT * FROM messages WHERE conversationID = "+str(conv['ID'])
+			retval2 = dbquery(query)
+			if len(retval2) == 1:
+				query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
+				retval3 = dbquery(query)
+				print retval3
+				tot += '"'+str(c)+'": { "question": "'+conv['question']+'", "sendername": "'+retval3[0]['name']+'"},'
+				c+=1
 	tot = tot[:-1]
 	tot += "}"
 	return tot
