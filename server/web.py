@@ -39,7 +39,7 @@ def hello_monkey():
 	out =  {'username': Datadict['username'] : 'username', 'password': Datadict['password']}
 	sq.register(out)
 	
-('Username', 'Password')
+#('Username', 'Password')
 	
 '''
 if __name__ == "__main__":
