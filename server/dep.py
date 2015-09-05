@@ -16,18 +16,15 @@ def dbinsert(query):
         con.close()
 @app.route("/addmessage", methods=['GET', 'POST'])
 def storemessage():
-	print request.form.iteritems()
-	message = request.form
-	#stype = request.values.get('stype', None)
-	#cid = request.values.get('cid', None)
-	#query = "SELECT max(messagenumber) FROM messages WHERE conversationID ="+cid
-	#retval = dbquery(query)
-	print message.values()
-	for key, value in message:
-		print key + ":" + value
-	return message
-	#query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+retval+", "+message+", "+stype+", "+cid+")"
-	#dbinsert(query)
+	register_info = request.data
+	Datadict = json.loads(register_info)
+	stype=Datadict['stype']
+	cid= Datadict['cid']
+	message = Datadict['message']
+	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = "+cid
+	retval = dbquery(query)
+	query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+retval+", "+message+", "+stype+", "+cid+")"
+	dbinsert(query)
 @app.route("/getmessage", methods=['GET', 'POST'])
 def retmessages():
 	start = request.values.get('start', None)
@@ -45,4 +42,3 @@ def retmessages():
 	return tot
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
-	
