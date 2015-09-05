@@ -1,7 +1,6 @@
 from flask import Flask, request, redirect, jsonify
 import json
 import MySQLdb as mdb
-from txtcommands import init
 
 def dbquery(query):
 	con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
@@ -33,14 +32,14 @@ class messaging():
 			#TODO check if lang exsists if not reply is lang
 			if  user_data['lang'] == 'null':
 				user_data['lang'] = str(self.find_lang(self.message))
-				query = "UPDATE `texters` set lang = " +  user_data['lang'] ", name = 'null' WHERE phone = " + self.number
+				query = "UPDATE `texters` set lang = " +  user_data['lang'] + ", name = 'null' WHERE phone = " + self.number
 				cur.execute(query)
 				self.message = translate('en', user_data['lang'], "What is your name?") #TODO add translation function
 			elif user_data['name'] == 'null':
 				self.name = self.message
-				query = "UPDATE `texters` set name = '" str(self.name) + "' WHERE phone = " + self.number
+				query = "UPDATE `texters` set name = '" + str(self.name) + "' WHERE phone = " + self.number
 				cur.execute(query)
-				self.message("Welcome " + self.name + " to see help, type /help, to ask a question, type /ask"
+				self.message = "Welcome " + self.name + " to see help, type /help, to ask a question, type /ask"
 				
 			self.user_data = user_data
 		else:
