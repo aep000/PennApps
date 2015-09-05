@@ -5,6 +5,7 @@ import os
 import goslate
 import sqliteutils as sq
 import MySQLdb as mdb
+import dep
 HOST = '45.79.138.244'
 #PORT = int(os.environ.get('PORT', 80))
 #PORT = int(os.environ['PORT'])
@@ -24,10 +25,14 @@ def hello():
 def hello_monkey():
     """Respond and greet the caller by name."""
     try:
+	    message = dep.messaging(phone_number, message)  
 	    body = request.values.get('Body', None)
  	    from_number = request.values.get('From', None)
-
-	    message = cbot(body)
+	    if body[0] == "/":
+		pass
+	    else:
+		message_interface = dep.messenger(phone_number, message)
+		message = message_interface.get_message()
 	    resp = twilio.twiml.Response()
 	    resp.message(message)
 	    return str(resp)
