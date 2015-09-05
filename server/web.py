@@ -39,11 +39,10 @@ def register():
 	register_info = request.data
 	print register_info + str(type(register_info))
 	Datadict = json.loads(register_info)
-	out =  {'username': Datadict['username'], 'password': Datadict['password']}
+	out =  {'username': Datadict['username'], 'name': Datadict['name'], 'password': Datadict['password'], 'specialty':Datadict['specialty']}
 	return sq.register(out)
 	#return jsonify(results={"status":200})
-	sq.register(out)
-
+	
 @app.route("/login", methods=['GET', 'POST'])
 def login():
 	login_info = request.data
@@ -61,6 +60,6 @@ if __name__ == "__main__":
 '''
 
 def go_run():
-    port = int(os.environ.get('PORT', 8))
+    port = int(os.environ.get('PORT', 80))
     app.run(host='0.0.0.0', port=port)
 go_run()

@@ -1,28 +1,26 @@
 import MySQLdb as mdb
+from flask import jsonify
+import json
 
 def register(info):
-	mysql_conn =  mdb.connect('45.79.138.244', 'root', "emerson1", 'Pennapps')
-	mysql_cursor = mysql_con.cursor(mdb.cursors.DictCursor)
-	query = "INSERT INTO `doctors` (username, password) VALUES ('" + str(info['username']) + "' , '" + str(info['password']) + "')"	
+	mysql_conn =  mdb.connect('localhost', 'root', "emerson1", 'Pennapps')
+	mysql_cursor = mysql_conn.cursor(mdb.cursors.DictCursor)
+	query = "INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '" + str(info['name'])  + "', '" + str(info['username']) + "' , '" + str(info['password']) + "', '" + str(info['specialty']) + "')"	
 	print query 
 	res = mysql_cursor.execute(query)
 	mysql_conn.commit()
-	return (response)
+	return jsonify({"status":200})
 	
 
-def login(username, password):
-	mysql_conn =  mdb.connect('localhost', 'root', "I8~8(IV)RU}Pf.O=9G51<IOgm)9z", 'Pennapps')
-	mysql_cursor = mysql_con.cursor(mdb.cursors.DictCursor)
-	query = "SELECT * FROM `doctors` (username, password)" 
-	print query 
+def login(info):
+	mysql_conn =  mdb.connect('localhost', 'root', "emerson1", 'Pennapps')
+	mysql_cursor = mysql_conn.cursor(mdb.cursors.DictCursor)
+	query = "SELECT * FROM `doctors` WHERE user = '" + str(info['username']) + "' AND password = '" + str(info['password']) + "'" 
 	res = mysql_cursor.execute(query)
-	res = cur.fetchall()
+	res = mysql_cursor.fetchone()
 	if len(res) >0:
 		jreturn = json.dumps(res)
+		print jreturn
 	mysql_conn.commit()
 	return (jreturn)
-	
-
-
-	
 
