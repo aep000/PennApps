@@ -5,6 +5,7 @@ import os
 import goslate
 import sqliteutils as sq
 import MySQLdb as mdb
+import dep
 HOST = '45.79.138.244'
 #PORT = int(os.environ.get('PORT', 80))
 #PORT = int(os.environ['PORT'])
@@ -26,8 +27,12 @@ def hello_monkey():
     try:
 	    body = request.values.get('Body', None)
  	    from_number = request.values.get('From', None)
-
-	    message = cbot(body)
+	    if body[0] == "/":
+		pass
+	    else:
+		message = body
+		message_interface = dep.messaging(from_number, message)
+		message = message_interface.get_message()
 	    resp = twilio.twiml.Response()
 	    resp.message(message)
 	    return str(resp)
