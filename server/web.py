@@ -5,7 +5,7 @@ import os
 import goslate
 import sqliteutils as sq
 
-HOST = '127.0.0.1'
+HOST = '45.79.138.244'
 #PORT = int(os.environ.get('PORT', 80))
 #PORT = int(os.environ['PORT'])
 PORT = int(os.environ.get('PORT', 80))
@@ -61,5 +61,5 @@ if __name__ == "__main__":
 
 def go_run():
     port = int(os.environ.get('PORT', 80))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='45.79.138.244', port=port)
 go_run()
