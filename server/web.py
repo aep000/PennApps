@@ -42,7 +42,26 @@ def register():
 	out =  {'username': Datadict['username'], 'name': Datadict['name'], 'password': Datadict['password'], 'specialty':Datadict['specialty']}
 	return sq.register(out)
 	#return jsonify(results={"status":200})
-
+@app.route("/doclist", methods=['GET', 'POST'])
+def doclist():
+	register_info = request.data
+	Datadict = json.loads(register_info)
+	start=Datadict['amount']
+	specialty = Datadict['special']
+	tot ="{"
+	query="SELECT * FROM conversations WHERE ID > max(ID)-"+amount+" ORDER BY ID DESC"
+	retval = dbquery(query)
+	c=0
+	for conv in retval:
+		query= "SELECT * FROM messages WHERE conversationID = "+str(conv['ID'])
+		retval2 = dbquery(query)
+		if len(retval2) = 1:
+			query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
+			retval3 = dbquery(query)
+			tot += '"'str(c)+'": { "question": "'+conv[question]+'", "sendername": "'+retval3[0]['name']+'"},'
+	tot = tot[:-1]
+	tot += "}"
+	return tot
 @app.route("/login", methods=['GET', 'POST'])
 def login():
 	login_info = request.data
