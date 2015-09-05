@@ -25,13 +25,13 @@ def hello():
 def hello_monkey():
     """Respond and greet the caller by name."""
     try:
-	    message = dep.messaging(phone_number, message)  
 	    body = request.values.get('Body', None)
  	    from_number = request.values.get('From', None)
 	    if body[0] == "/":
 		pass
 	    else:
-		message_interface = dep.messenger(phone_number, message)
+		message = body
+		message_interface = dep.messaging(from_number, message)
 		message = message_interface.get_message()
 	    resp = twilio.twiml.Response()
 	    resp.message(message)
