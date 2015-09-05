@@ -1,7 +1,5 @@
 import json
-from flask import Flask, request, redirect
 import MySQLdb as mdb
-app = Flask(__name__)
 def dbquery(query):
 	con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
 	cur = con.cursor(mdb.cursors.DictCursor)
@@ -16,37 +14,48 @@ def dbinsert(query):
 	results =  cur.fetchall()
 	con.commit()
 	con.close()
-@app.route("/addmessage", methods=['GET', 'POST'])
-def storemessage():
+
+def helpget(input):
+	#/help
+	if input[:5] == "/help":
+		ret = """
+		/reply - Reply to a doctor's response.
+		/list - Lists all of your chats
+		/close - End a chat
+		/ask - Ask a quetion
+		/help - See this message again"""
+		return ret
+	else:
+		pass
+def txtlist(input, number):
+	if input[:5] == "/list":
+		query = "SELECT * FROM conversations WHERE texternumber = '"+number+"'"
+		retval = dbquery(query)
+		ret = ""
+		c = 0;
+		for chat in retval:
+			query = "SELECT * FROM doctors WHERE ID = "+chat['doctorID']
+			retval2 = dbquery(query)
+			ret += "c) "+retval2[0]['name']+": "+chat['question']+"\n"
+			c+=1
+		return ret
+@app.route("/doclist", methods=['GET', 'POST'])
+def doclist():
 	register_info = request.data
 	Datadict = json.loads(register_info)
-	stype=Datadict['stype']
-	cid= Datadict['cid']
-	message = Datadict['message']
-	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = "+cid
-	retval = dbquery(query)
-	print retval[0]['max(messagenumber)']
-	query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+str(retval[0]['max(messagenumber)']+1)+", '"+message+"', '"+stype+"', "+str(cid)+")"
-	dbinsert(query)
-	return "ok"
-@app.route("/getmessage", methods=['GET', 'POST'])
-def retmessages():
-	register_info = request.data
-	Datadict = json.loads(register_info)
-	start=Datadict['start']
-	cid= Datadict['cid']
-	end = Datadict['end']
-	query = "SELECT max(messagenumber) FROM messages WHERE conversationID ="+cid
-	retval = dbquery(query)
-	query = "SELECT * FROM messages WHERE conversationID ="+cid+" and messagenumber >"+str(int(retval[0]['max(messagenumber)'])-int(end))+" and messagenumber <"+str(int(retval[0]['max(messagenumber)'])-int(start))+" ORDER BY messagenumber ASC;"
+	start=Datadict['amount']
+	specialty = Datadict['special']
+	tot ="{"
+	query="SELECT * FROM conversations WHERE ID > max(ID)-"+amount+" ORDER BY ID DESC"
 	retval = dbquery(query)
 	c=0
-	tot="{"
-	for message in retval:
-		tot += '"'+str(c)+'": {"body": "'+message["messagebody"]+'", "stype": "'+message["sendertype"]+'"},'
-		c +=1
+	for conv in retval:
+		query= "SELECT * FROM messages WHERE conversationID = "+str(conv['ID'])
+		retval2 = dbquery(query)
+		if len(retval2) = 1:
+			query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
+			retval3 = dbquery(query)
+			tot += '"'str(c)+'": { "question": "'+conv[question]+'", "sendername": "'+retval3[0]['name']+'"},'
 	tot = tot[:-1]
-	tot +="}"
+	tot += "}"
 	return tot
-if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)

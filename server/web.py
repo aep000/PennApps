@@ -25,7 +25,7 @@ def hello_monkey():
     """Respond and greet the caller by name."""
     try:
 	    body = request.values.get('Body', None)
-            from_number = request.values.get('From', None)
+        from_number = request.values.get('From', None)
 
 	    message = cbot(body)
 	    resp = twilio.twiml.Response()
