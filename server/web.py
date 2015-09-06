@@ -158,6 +158,6 @@ if __name__ == "__main__":
 '''
 
 def go_run():
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 80))
     app.run(host='45.79.138.244', port=port)
 go_run()
