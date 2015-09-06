@@ -141,9 +141,10 @@ def convolist():
     tot = "{"
     c=0
     for row in retval:
-        query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
+        query = "SELECT * FROM texters WHERE phone = "+str(row['texternumber'])
         retval3 = dbquery(query)
-        tot+= '"'+str(c)+'": {"question": "'+row['question']+'", "sendername": "'+retval3['0']['name']+'"}'
+	print retval3[0]['name']
+        tot+= '"'+str(c)+'": {"question": "'+row['question']+'", "sendername": "'+retval3[0]['name']+'"},'
         c+=1
     tot = tot[:-1]
     tot += '}'
@@ -158,6 +159,6 @@ if __name__ == "__main__":
 '''
 
 def go_run():
-    port = int(os.environ.get('PORT', 80))
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='45.79.138.244', port=port)
 go_run()

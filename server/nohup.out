@@ -1,0 +1,633 @@
+ * Running on http://45.79.138.244:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+24.104.128.51 - - [06/Sep/2015 06:47:48] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:51:22] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:51:50] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:54:21] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:08] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:11] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:13] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:15] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:17] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:18] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:30] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:32] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:33] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:35] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:36] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:37] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:39] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:40] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:42] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:43] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:44] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:46] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:47] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:48] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:49] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:51] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:52] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:56] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:56:57] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:58:12] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 06:58:32] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:01:41] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:02:26] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:05:05] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:06:13] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:06:58] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:09:09] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:09:33] "POST /getconvo HTTP/1.1" 200 -
+initializing on 5000 debug mode is set to True
+home page accessed
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex 24.104.128.51 - - [06/Sep/2015 08:10:22] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:11:05] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:11:22] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:12:51] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:13:02] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:13:24] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:17:26] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:17:46] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:20:17] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:26:43] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:27:03] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:31:25] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:37:16] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:43:35] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:44:20] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:44:33] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:44:49] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:47:36] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:49:55] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:51:08] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:51:25] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:51:39] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:51:54] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:52:05] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:53:14] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:56:33] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:56:49] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:57:08] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 08:57:10] "POST /register HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:00:22] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:07:20] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:21:32] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:24:18] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:24:41] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:24:42] "POST /doclist HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/PennApps/server/web.py", line 51, in doclist
+    amount=Datadict['amount']
+KeyError: 'amount'
+24.104.128.51 - - [06/Sep/2015 09:25:03] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:25:03] "POST /doclist HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/PennApps/server/web.py", line 51, in doclist
+    amount=Datadict['amount']
+KeyError: 'amount'
+24.104.128.51 - - [06/Sep/2015 09:25:36] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:25:37] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:25:37] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:25:45] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:25:45] "POST /doclist HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/PennApps/server/web.py", line 51, in doclist
+    amount=Datadict['amount']
+KeyError: 'amount'
+24.104.128.51 - - [06/Sep/2015 09:26:43] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:27:07] "POST /doclist HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/PennApps/server/web.py", line 51, in doclist
+    amount=Datadict['amount']
+KeyError: 'amount'
+24.104.128.51 - - [06/Sep/2015 09:29:02] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:30:05] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:30:11] "POST /doclist HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/PennApps/server/web.py", line 52, in doclist
+    uid = Datadict['uid']
+KeyError: 'uid'
+24.104.128.51 - - [06/Sep/2015 09:31:06] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:31:11] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:32:14] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:32:24] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:33:15] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:33:15] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:34:11] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:34:11] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:37:49] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:37:49] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:38:20] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:38:20] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:47:45] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:47:45] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:50:39] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:50:39] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:51:13] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 09:51:13] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:03:36] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:03:36] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:04:34] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:04:34] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:06:16] "POST /getconvo HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:06:17] "POST /doclist HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:53] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:54] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:54] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:55] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:55] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:55] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:55] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:56] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:57] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+{"username":"","password":"","specialty":"","name":""}<type 'str'>
+INSERT INTO `doctors` (name, user, password, specialty) VALUES ( '', '' , '', '')
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+home page accessed
+home page accessed
+home page accessed
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+Alex Parson
+Alex Parson
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+({'lang': 'english', 'phone': '9083919570', 'ID': 8L, 'name': 'Alex Parson', 'location': 'null'},)
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+ho24.104.128.51 - - [06/Sep/2015 10:10:58] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:10:59] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:00] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:01] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:02] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:02] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:02] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:02] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:02] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:02] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:02] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:03] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:04] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:04] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:04] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:04] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:04] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:04] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:04] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:05] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:06] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:06] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:06] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:07] "GET / HTTP/1.1" 200 -
+24.104.128.51 - - [06/Sep/2015 10:11:07] "GET / HTTP/1.1" 200 -
+initializing on 5000 debug mode is set to True
+me page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
+home page accessed
