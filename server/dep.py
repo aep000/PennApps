@@ -1,6 +1,12 @@
 from flask import Flask, request, redirect, jsonify
 import json
 import MySQLdb as mdb
+import csv
+
+
+def from_lang(to_translate, target, source):
+	gs = goslate.Goslate()
+	return  gs.translate(to_translate, target_language, source_language)
 
 def dbquery(query):
 	con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
@@ -19,49 +25,50 @@ def dbinsert(query):
 
 class messaging():
 	def __init__(self, phone_number, message):
-
-		
 		self.number = phone_number
 		self.message = message
 		
 		self.con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
-		self.cur = con.cursor(mdb.cursors.DictCursor)
-
+		self.cur = self.con.cursor(mdb.cursors.DictCursor)
+		
 		user_data = self.is_new()
+		print user_data
 		if user_data != True:
 			#TODO check if lang exsists if not reply is lang
 			if  user_data['lang'] == 'null':
 				user_data['lang'] = str(self.find_lang(self.message))
 				query = "UPDATE `texters` set lang = " +  user_data['lang'] + ", name = 'null' WHERE phone = " + self.number
-				cur.execute(query)
+				self.cur.execute(query)
 				self.message = translate('en', user_data['lang'], "What is your name?") #TODO add translation function
 			elif user_data['name'] == 'null':
 				self.name = self.message
 				query = "UPDATE `texters` set name = '" + str(self.name) + "' WHERE phone = " + self.number
-				cur.execute(query)
+				self.cur.execute(query)
 				self.message = "Welcome " + self.name + " to see help, type /help, to ask a question, type /ask"
 				
 			self.user_data = user_data
 		else:
 			#TODO create conversation, message 
 			#TODO ask name if name=null, set name in database, then after you check on all that stuff ask what is your question
-			query = "INSERT INTO `texters` (lang, phone) VALUES 'null', '"  + str(self.number) + "'"
-			cur.execute(query) 
+			query = "INSERT INTO `texters` (lang, phone) VALUES ('null', '"  + str(self.number) + "')"
+			self.cur.execute(query) 
 			self.message = "What language do you speak?"
+			self.con.commit()
 			#TODO call/write lang function
 
-	def get_message():
+	def get_message(self):
 		return self.message
-	def is_new():
+	def is_new(self):
 		query = "SELECT * FROM `texters` WHERE phone = '" + self.number + "' "
-		cur.execute(query)
-		results = cur.fetchone()
+		print query
+		self.cur.execute(query)
+		results = self.cur.fetchone()
 		if results != None and  len(results) > 0:
 			return results
 		else:
 			return True
 
-	def helpget(input):
+	def helpget(self, input):
 		#/help
 		if input[:5] == "/help":
 			ret = """
@@ -73,7 +80,7 @@ class messaging():
 			return ret
 		else:
 			pass
-	def txtlist(input, number):
+	def txtlist(self, input, number):
 		if input[:5] == "/list":
 			query = "SELECT * FROM conversations WHERE texternumber = '"+number+"'"
 			retval = dbquery(query)
@@ -85,54 +92,53 @@ class messaging():
 				ret += "c) "+retval2[0]['name']+": "+chat['question']+"\n"
 				c+=1
 			return ret
-	'''
-	@app.route("/doclist", methods=['GET', 'POST'])
-	def doclist():
-		register_info = request.data
-		Datadict = json.loads(register_info)
-		start=Datadict['amount']
-		specialty = Datadict['special']
-		tot ="{"
-		query="SELECT * FROM conversations WHERE ID > max(ID)-"+amount+" ORDER BY ID DESC"
-		retval = dbquery(query)
-		c=0
-		for conv in retval:
-			query= "SELECT * FROM messages WHERE conversationID = "+str(conv['ID'])
-			retval2 = dbquery(query)
-			if len(retval2) == 1:
-				query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
-				retval3 = dbquery(query)
-				tot += '"'str(c)+'": { "question": "'+conv[question]+'", "sendername": "'+retval3[0]['name']+'"},'
-		tot = tot[:-1]
-		tot += "}"
-		return tot
-	'''
-	def fix_message(message):
+	
+	
+	def fix_message(self, message):
 		message = message.split(" ")
 		message = message[0]
 		message = message.lower()
 		mchar = message[0]
-		message.pop(0)
+		message = message[1:(len(message) +1 )]
 		mchar.upper()
 		message = mchar + message
 		return message
 
-	def get_list():
-		lang = open('language-codes.json')
-		lang = lang.read()
-		lang_json = json.dumps(lang)
-		lang_json = {v: k for k, v in map.items()}# Invert the dictionary
-		return lang_json
 
+	'''
+	def get_list(self):
+		lang = open('language-codes.json', 'r')
+		lang_json = json.load(lang.read())
+		print type(lang_json)
+		return data
 
+	def get_list(self):
+		with open('language-codes.csv', mode='r') as infile:
+			reader = csv.reader(infile)
+			with open ('language-codes.csv', mode='w') as outfile:
+				writer = csv.writer(outfile) 
+				mydict = {rows[0]:rows[1] for rows in reader}
+				print mydict
+		return mydict
+	'''
+	
+	def get_list(self):
+		lang_list = {
+			'spanish':'es',
+			'french' : 'fr',
+			'danish' : 'da',
+			'aymaran' : 'ay'
+		}
 
-	def find_lang(message):	
-		message = fix_message(message)
-		lang_json = get_list()
+	def find_lang(self, target, source):	
+		message = self.fix_message(message)
+		lang_json = self.get_list()
 		
 		if message not in lang_json:
 			return "en"#When it's invalid default to english
 		else:
 			return lang_json['message']
-
+	def from_lang(to_translate, target, source):
+		gs = goslate.Goslate()
+		return  gs.translate(to_translate, target_language, source_language)
 
