@@ -49,7 +49,7 @@ def doclist():
 	register_info = request.data
 	Datadict = json.loads(register_info)
 	amount=Datadict['amount']
-	uid = Datadict['uid']
+	uid = Datadict['uname']
 	tot ="{"
 	query="SELECT * FROM conversations ORDER BY ID DESC"
 	retval = dbquery(query)
@@ -62,7 +62,7 @@ def doclist():
 				query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
 				retval3 = dbquery(query)
 				print retval3
-				tot += '"'+str(c)+'": { "question": "'+conv['question']+'", "sendername": "'+retval3[0]['name']+'"},'
+				tot += '"'+str(c)+'": { "question": "'+conv['question']+'", "sendername": "'+retval3[0]['name']+'", "cid": "'+conv['ID']+'"},'
 				c+=1
 	tot = tot[:-1]
 	tot += "}"
@@ -96,7 +96,12 @@ def storemessage():
 	stype=Datadict['stype']
 	cid= Datadict['cid']
 	message = Datadict['message']
-	
+	if stype == "doctor":
+        query ='SELECT * FROM doctors WHERE user="'+uname+'"'
+        retval = dbquery(query)
+        IDs=retval[0]['ID']
+        query = 'UPDATE conversation SET doctorID='+IDs+' WHERE ID ='+str(cid)
+        dbinsert(query)
 	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = " + str(cid)
 	retval = dbquery(query)
 	print retval[0]['max(messagenumber)']
@@ -144,7 +149,7 @@ def convolist():
         query = "SELECT * FROM texters WHERE phone = "+str(row['texternumber'])
         retval3 = dbquery(query)
 	print retval3[0]['name']
-        tot+= '"'+str(c)+'": {"question": "'+row['question']+'", "sendername": "'+retval3[0]['name']+'"},'
+        tot+= '"'+str(c)+'": {"question": "'+row['question']+'", "sendername": "'+retval3[0]['name']+'", "cid": "'+row['ID']+'"},'
         c+=1
     tot = tot[:-1]
     tot += '}'
