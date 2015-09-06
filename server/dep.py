@@ -3,11 +3,6 @@ import json
 import MySQLdb as mdb
 import csv
 
-
-def from_lang(to_translate, target, source):
-	gs = goslate.Goslate()
-	return  gs.translate(to_translate, target_language, source_language)
-
 def dbquery(query):
 	con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
 	cur = con.cursor(mdb.cursors.DictCursor)
@@ -30,31 +25,34 @@ class messaging():
 		
 		self.con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
 		self.cur = self.con.cursor(mdb.cursors.DictCursor)
-		
-		user_data = self.is_new()
-		print user_data
-		if user_data != True:
-			#TODO check if lang exsists if not reply is lang
-			if  user_data['lang'] == 'null':
-				user_data['lang'] = str(self.find_lang(self.message))
-				query = "UPDATE `texters` set lang = " +  user_data['lang'] + ", name = 'null' WHERE phone = " + self.number
-				self.cur.execute(query)
-				self.message = translate('en', user_data['lang'], "What is your name?") #TODO add translation function
-			elif user_data['name'] == 'null':
-				self.name = self.message
-				query = "UPDATE `texters` set name = '" + str(self.name) + "' WHERE phone = " + self.number
-				self.cur.execute(query)
-				self.message = "Welcome " + self.name + " to see help, type /help, to ask a question, type /ask"
-				
-			self.user_data = user_data
-		else:
-			#TODO create conversation, message 
-			#TODO ask name if name=null, set name in database, then after you check on all that stuff ask what is your question
-			query = "INSERT INTO `texters` (lang, phone) VALUES ('null', '"  + str(self.number) + "')"
-			self.cur.execute(query) 
-			self.message = "What language do you speak?"
-			self.con.commit()
-			#TODO call/write lang function
+		if self.message[0] == '/':
+			txtcommands.init(self.message, self.number)
+
+		else:	
+			user_data = self.is_new()
+			print user_data
+			if user_data != True:
+				#TODO check if lang exsists if not reply is lang
+				if  user_data['lang'] == 'null':
+					user_data['lang'] = str(self.find_lang(self.message))
+					query = "UPDATE `texters` set lang = " +  user_data['lang'] + ", name = 'null' WHERE phone = " + self.number
+					self.cur.execute(query)
+					self.message = translate('en', user_data['lang'], "What is your name?") #TODO add translation function
+				elif user_data['name'] == 'null':
+					self.name = self.message
+					query = "UPDATE `texters` set name = '" + str(self.name) + "' WHERE phone = " + self.number
+					self.cur.execute(query)
+					self.message = "Welcome " + self.name + " to see help, type /help, to ask a question, type /ask"
+					
+				self.user_data = user_data
+			else:
+				#TODO create conversation, message 
+				#TODO ask name if name=null, set name in database, then after you check on all that stuff ask what is your question
+				query = "INSERT INTO `texters` (lang, phone) VALUES ('null', '"  + str(self.number) + "')"
+				self.cur.execute(query) 
+				self.message = "What language do you speak?"
+				self.con.commit()
+				#TODO call/write lang function
 
 	def get_message(self):
 		return self.message

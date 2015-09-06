@@ -27,12 +27,9 @@ def hello_monkey():
     try:
 	    body = request.values.get('Body', None)
  	    from_number = request.values.get('From', None)
-	    if body[0] == "/":
-		pass
-	    else:
-		message = body
-		message_interface = dep.messaging(from_number, message)
-		message = message_interface.get_message()
+  	    message = body
+	    message_interface = dep.messaging(from_number, message)
+	    message = message_interface.get_message()
 	    resp = twilio.twiml.Response()
 	    resp.message(message)
 	    return str(resp)
