@@ -1,0 +1,3 @@
+[submodule "PennApps_iOS"]
+	path = PennApps_iOS
+	url = https://github.com/jakesyl/PennApps_iOS.git
