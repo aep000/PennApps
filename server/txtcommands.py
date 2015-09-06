@@ -14,11 +14,11 @@ def dbinsert(query):
 	cur.execute(query)
 	results =  cur.fetchall()
 	con.commit()
-	con.close()\
+	con.close()
 
-def helpget(input):
+def helpget(inputs):
 	#/help
-	if input[:5] == "/help":
+	if inputs[:5] == "/help":
 		ret = """
 		/reply (conversation number) - Reply to a doctor's response.
 		/list - Lists all of your chats
@@ -28,8 +28,8 @@ def helpget(input):
 		return ret
 	else:
 		pass
-def txtlist(input, number):
-	if input[:5] == "/list":
+def txtlist(inputs, number):
+	if inputs[:5] == "/list":
 		query = "SELECT * FROM conversations WHERE texternumber = '"+number+"'"
 		retval = dbquery(query)
 		ret = ""
@@ -41,8 +41,8 @@ def txtlist(input, number):
 			c+=1
 		return ret
 
-def close(input, number):
-    if input[:6]=="/close":
+def closes(inputs, number):
+    if inputs[:6]=="/close":
         query = "SELECT * FROM conversation WHERE texternumber ="+number
         retval=dbquery(query)
         cid = retval[0]['ID']
@@ -50,24 +50,25 @@ def close(input, number):
         dbinsert(query)
         query = "DELETE FROM conversations where texternumber ="+number
         return "Conversation deleted"
-def ask(input, number):
-    if input[:4]=="/ask":
+def asks(inputs, number):
+    if inputs[:4]=="/ask":
         query = "SELECT max(ID) FROM conversations"
         retval= dbquery(query)
         cid = retval[0]['max(ID)']
-        query = "INSERT INTO conversations (texternumber, question) VALUES ("+str(number)+", "+input[4:]
+        query = "INSERT INTO conversations (texternumber, question) VALUES ("+str(number)+", '"+inputs[4:] + "'"
+	print "convo " + query
         retval= dbinsert(query)
         query = "SELECT max(messagenumber) FROM messages WHERE convesationID ="+str(cid)
         retval= dbquery(query)
         mid = retval[0]['max(messagenumber)']
-        query = "INSERT INTO messages (conversationID, messagebody, sendertype, messagenumber) VALUES ("+cid+", "+input[4:]+", texter, "+ str(mid+1)+")"
+        query = "INSERT INTO messages (conversationID, messagebody, sendertype, messagenumber) VALUES ("+cid+", "+inputs[4:]+", texter, "+ str(mid+1)+")"
         return "Your question has been submitted"
-def reply(input, number):
-    if input[:6]=="/reply":
-        command = input.split(" ")[1]
+def replys(inputs, number):
+    if inputs[:6]=="/reply":
+        command = inputs.split(" ")[1]
         c=0
         tot=""
-        for word in input.split(" "):
+        for word in inputs.split(" "):
             if c>1:
                 tot += word+" "
             c+=1
@@ -80,10 +81,10 @@ def reply(input, number):
         query = "INSERT INTO messages (conversationID, messagebody, sendertype, messagenumber) VALUES ("+str(cid)+", "+str(tot)+", 'texter', "+str(msgs+1)+")"
         dbinsert(query)
         return "Your reply has been sent"
-def init(input, number):
-    help =helpget(input)
-    lis= txtlist(input, number)
-    close=close(input, number)
-    ask=ask(input, number)
-    reply=reply(input)
-    return str(help)+str(lis)+str(close)+str(ask)+str(reply)
+def init(inputs, number):
+    helps =helpget(inputs)
+    lis= txtlist(inputs, number)
+    close=closes(inputs, number)
+    ask=asks(inputs, number)
+    reply=replys(inputs, number)
+    return str(helps)+str(lis)+str(close)+str(ask)+str(reply)
