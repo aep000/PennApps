@@ -61,6 +61,7 @@ def ask(input, number):
         retval= dbquery(query)
         mid = retval[0]['max(messagenumber)']
         query = "INSERT INTO messages (conversationID, messagebody, sendertype, messagenumber) VALUES ("+cid+", "+input[4:]+", texter, "+ str(mid+1)+")"
+        return "Your question has been submitted"
 def reply(input, number):
     if input[:6]=="/reply":
         command = input.split(" ")[1]
@@ -77,6 +78,12 @@ def reply(input, number):
         retval = dbquery(query)
         msgs = retval[0]['max(messagenumber)']
         query = "INSERT INTO messages (conversationID, messagebody, sendertype, messagenumber) VALUES ("+str(cid)+", "+str(tot)+", 'texter', "+str(msgs+1)+")"
-        print query
         dbinsert(query)
-reply("/reply 12  what is a doctor", 9083919570)
+        return "Your reply has been sent"
+def init(input, number):
+    help =helpget(input)
+    lis= txtlist(input, number)
+    close=close(input, number)
+    ask=ask(input, number)
+    reply=reply(input)
+    return str(help)+str(lis)+str(close)+str(ask)+str(reply)
