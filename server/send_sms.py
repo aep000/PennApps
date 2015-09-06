@@ -7,6 +7,4 @@ def send_sms(to_number, the_body):
 
 	message = client.messages.create(to=to_number, from_="+19087524729",
                                      body=the_body)
-	 
-	#message = client.messages.create(to, from_="+19087524729", body=body)
-send_sms("+19087520310", "Hello, World!")
+	return True	

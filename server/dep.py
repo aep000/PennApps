@@ -25,13 +25,10 @@ class messaging():
 		
 		self.con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
 		self.cur = self.con.cursor(mdb.cursors.DictCursor)
-		if self.message[0] == '/':
-			txtcommands.init(self.message, self.number)
 
-		else:	
-			user_data = self.is_new()
-			print user_data
-			if user_data != True:
+		user_data = self.is_new()
+		print user_data
+		if user_data != True:
 				#TODO check if lang exsists if not reply is lang
 				if  user_data['lang'] == 'null':
 					user_data['lang'] = str(self.find_lang(self.message))
@@ -44,15 +41,23 @@ class messaging():
 					self.cur.execute(query)
 					self.message = "Welcome " + self.name + " to see help, type /help, to ask a question, type /ask"
 					
-				self.user_data = user_data
-			else:
-				#TODO create conversation, message 
-				#TODO ask name if name=null, set name in database, then after you check on all that stuff ask what is your question
-				query = "INSERT INTO `texters` (lang, phone) VALUES ('null', '"  + str(self.number) + "')"
-				self.cur.execute(query) 
-				self.message = "What language do you speak?"
-				self.con.commit()
-				#TODO call/write lang function
+				else:
+					self.user_data = user_data
+					#ind out language
+					eng = self.from_lang(self.message, 'en',  user_data['lang'])
+					txtcommands.init(end, self.number)
+					self.message = self.from_lang("The doctor has received your message and will be replying shortly", user_data['lang'], 'en')
+					
+
+		else:	
+		
+			#TODO create conversation, message 
+			#TODO ask name if name=null, set name in database, then after you check on all that stuff ask what is your question
+			query = "INSERT INTO `texters` (lang, phone) VALUES ('null', '"  + str(self.number) + "')"
+			self.cur.execute(query) 
+			self.message = "What language do you speak?"
+			self.con.commit()
+			#TODO call/write lang function
 
 	def get_message(self):
 		return self.message
@@ -136,7 +141,7 @@ class messaging():
 			return "en"#When it's invalid default to english
 		else:
 			return lang_json['message']
-	def from_lang(to_translate, target, source):
+	def translate(to_translate, target, source):
 		gs = goslate.Goslate()
 		return  gs.translate(to_translate, target_language, source_language)
 
