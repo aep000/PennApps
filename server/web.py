@@ -9,7 +9,7 @@ import dep
 HOST = '45.79.138.244'
 #PORT = int(os.environ.get('PORT', 80))
 #PORT = int(os.environ['PORT'])
-PORT = int(os.environ.get('PORT', 80))
+PORT = int(os.environ.get('PORT', 5000))
 
 DEBUG_MODE = True
 
@@ -110,15 +110,19 @@ def retmessages():
 	start=Datadict['start']
 	cid= Datadict['cid']
 	end = Datadict['end']
-	query = "SELECT max(messagenumber) FROM messages WHERE conversationID ="+str(retval[0]['max(messagenumber)'])
-	retval = dbquery(query)
-	query = "SELECT * FROM messages WHERE conversationID ="+cid+" and messagenumber >"+retval-end+" and messagenumber <"+retval-start+" ORDER BY messagenumber ASC;"
+	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = "+cid
+        retval = dbquery(query)
+        retval=retval[0]['max(messagenumber)']
+
+	query = "SELECT * FROM messages WHERE conversationID ="+str(cid)+" and messagenumber >"+str(int(retval)-int(end))+" and messagenumber <"+str(int(retval)-int(start))+" ORDER BY messagenumber ASC;"
 	retval = dbquery(query)
 	c=0
-	tot=""
+	tot="{"
 	for message in retval:
-		tot += '{"messagenumber": "'+c+'", "body": "',message["messagebody"]+'", "stype": "',message["sendertype"]+'"}'
+		tot += str(c)+': {"body": "'+message["messagebody"]+'", "stype": "'+message["sendertype"]+'"},'
 		c +=1
+	tot = tot[:-1]
+	tot += "}"
 	return tot
 
 #('Username', 'Password')
@@ -131,6 +135,6 @@ if __name__ == "__main__":
 '''
 
 def go_run():
-    port = int(os.environ.get('PORT', 80))
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='45.79.138.244', port=port)
 go_run()
