@@ -92,9 +92,11 @@ def storemessage():
 	register_info = request.data
 	print register_info
 	Datadict = json.loads(register_info)
+	uname=Datadict['uname']
 	stype=Datadict['stype']
 	cid= Datadict['cid']
 	message = Datadict['message']
+	
 	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = " + str(cid)
 	retval = dbquery(query)
 	print retval[0]['max(messagenumber)']
@@ -103,7 +105,7 @@ def storemessage():
 	query = "SELECT * FROM conversations WHERE ID="+str(cid)
 	retval = dbquery(query)
 	to = retval[0]['texternumber']
-	dep.sendsms(to,message)
+	dep.send_sms(to,message)
 	return jsonify(results={"status":200})
 @app.route("/getmessage", methods=['GET', 'POST'])
 def retmessages():
@@ -121,12 +123,31 @@ def retmessages():
 	c=0
 	tot="{"
 	for message in retval:
-		tot += str(c)+': {"body": "'+message["messagebody"]+'", "stype": "'+message["sendertype"]+'"},'
+		tot += '"'+str(c)+'": {"body": "'+message["messagebody"]+'", "stype": "'+message["sendertype"]+'"},'
 		c +=1
 	tot = tot[:-1]
 	tot += "}"
 	return tot
-
+@app.route("/getconvo", methods=['GET', 'POST'])
+def convolist():
+    register_info = request.data
+    Datadict = json.loads(register_info)
+    start=Datadict['uname']
+    query = 'SELECT * FROM doctors WHERE user ="'+start+'"'
+    retval= retval = dbquery(query)
+    uid = retval[0]['ID']
+    query ='SELECT * FROM conversations WHERE doctorID='+str(uid)+' ORDER BY ID DESC'
+    retval = dbquery(query)
+    tot = "{"
+    c=0
+    for row in retval:
+        query = "SELECT * FROM texters WHERE phone = "+conv['texternumber']
+        retval3 = dbquery(query)
+        tot+= '"'+str(c)+'": {"question": "'+row['question']+'", "sendername": "'+retval3['0']['name']+'"}'
+        c+=1
+    tot = tot[:-1]
+    tot += '}'
+    return tot
 #('Username', 'Password')
 
 '''
