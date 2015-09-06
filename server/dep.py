@@ -2,6 +2,17 @@ from flask import Flask, request, redirect, jsonify
 import json
 import MySQLdb as mdb
 import csv
+from twilio.rest import TwilioRestClient
+
+def send_sms(to_number, the_body):
+        account_sid = "AC7a14830568ec769f5f68d7d3d2ac7287"
+        auth_token = "3a0cd8283b0788e463e43f6fcab93f46"
+        client = TwilioRestClient(account_sid, auth_token)
+
+        message = client.messages.create(to=to_number, from_="+19087524729",
+                                     body=the_body)
+        return True
+
 
 def dbquery(query):
 	con = mdb.connect('127.0.0.1', 'root', "emerson1", 'Pennapps');
@@ -108,35 +119,22 @@ class messaging():
 		return message
 
 
-	'''
-	def get_list(self):
-		lang = open('language-codes.json', 'r')
-		lang_json = json.load(lang.read())
-		print type(lang_json)
-		return data
 
-	def get_list(self):
-		with open('language-codes.csv', mode='r') as infile:
-			reader = csv.reader(infile)
-			with open ('language-codes.csv', mode='w') as outfile:
-				writer = csv.writer(outfile) 
-				mydict = {rows[0]:rows[1] for rows in reader}
-				print mydict
-		return mydict
-	'''
 	
 	def get_list(self):
 		lang_list = {
-			'spanish':'es',
-			'french' : 'fr',
-			'danish' : 'da',
-			'aymaran' : 'ay'
+			'Spanish':'es',
+			'Srench' : 'fr',
+			'Danish' : 'da',
+			'Aymaran' : 'ay',
+			'English' : 'en'
 		}
+		return lang_list
 
-	def find_lang(self, target, source):	
-		message = self.fix_message(message)
+	def find_lang(self, target):	
+		message = self.fix_message(self.message)
 		lang_json = self.get_list()
-		
+			
 		if message not in lang_json:
 			return "en"#When it's invalid default to english
 		else:
