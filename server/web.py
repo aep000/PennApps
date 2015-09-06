@@ -93,16 +93,17 @@ def dbinsert(query):
 @app.route("/addmessage", methods=['GET', 'POST'])
 def storemessage():
 	register_info = request.data
+	print register_info
 	Datadict = json.loads(register_info)
 	stype=Datadict['stype']
 	cid= Datadict['cid']
 	message = Datadict['message']
-	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = "+cid
+	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = " + str(cid)
 	retval = dbquery(query)
 	print retval[0]['max(messagenumber)']
-	query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+str(retval[0]['max(messagenumber)']+1)+", '"+message+"', '"+stype+"', "+str(cid)+")"
+	query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+str(retval[0]['max(messagenumber)']+1)+", '" + message + "', '" + stype + "', "+str(cid)+")"
 	dbinsert(query)
-	return "ok"
+	return jsonify(results={"status":200})
 @app.route("/getmessage", methods=['GET', 'POST'])
 def retmessages():
 	register_info = request.data
