@@ -100,6 +100,10 @@ def storemessage():
 	print retval[0]['max(messagenumber)']
 	query = "INSERT INTO messages (messagenumber, messagebody, sendertype, conversationID) VALUES ("+str(retval[0]['max(messagenumber)']+1)+", '" + message + "', '" + stype + "', "+str(cid)+")"
 	dbinsert(query)
+	query = "SELECT * FROM conversations WHERE ID="+str(cid)
+	retval = dbquery(query)
+	to = retval[0]['texternumber']
+	dep.sendsms(to,message)
 	return jsonify(results={"status":200})
 @app.route("/getmessage", methods=['GET', 'POST'])
 def retmessages():
@@ -133,6 +137,6 @@ if __name__ == "__main__":
 '''
 
 def go_run():
-    port = int(os.environ.get('PORT', 80))
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='45.79.138.244', port=port)
 go_run()
