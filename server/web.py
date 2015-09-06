@@ -49,7 +49,7 @@ def doclist():
 	register_info = request.data
 	Datadict = json.loads(register_info)
 	amount=Datadict['amount']
-	uid = Datadict['uid']
+	uid = Datadict['uname']
 	tot ="{"
 	query="SELECT * FROM conversations ORDER BY ID DESC"
 	retval = dbquery(query)
@@ -96,7 +96,11 @@ def storemessage():
 	stype=Datadict['stype']
 	cid= Datadict['cid']
 	message = Datadict['message']
-	
+	if stype == "doctor":
+        'SELECT * FROM doctors WHERE user="'+uname+'"'
+        retval = dbquery(query)
+        IDs=retval[0]['ID']
+        'UPDATE conversation SET doctorID='+IDs+' WHERE ID ='+str(cid)
 	query = "SELECT max(messagenumber) FROM messages WHERE conversationID = " + str(cid)
 	retval = dbquery(query)
 	print retval[0]['max(messagenumber)']
