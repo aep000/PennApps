@@ -1,7 +1,9 @@
+import goslate
 from flask import Flask, request, redirect, jsonify
 import json
 import MySQLdb as mdb
 import csv
+import txtcommands
 from twilio.rest import TwilioRestClient
 
 def send_sms(to_number, the_body):
@@ -42,29 +44,33 @@ class messaging():
 		if user_data != True:
 				#TODO check if lang exsists if not reply is lang
 				if  user_data['lang'] == 'null':
-					user_data['lang'] = str(self.find_lang(self.message))
-					query = "UPDATE `texters` set lang = " +  user_data['lang'] + ", name = 'null' WHERE phone = " + self.number
+					var =  self.find_lang(self.message)
+					print var
+					query = "UPDATE `texters` set lang = '" +  var + "', name = 'null' WHERE phone = " + self.number
 					self.cur.execute(query)
-					self.message = translate('en', user_data['lang'], "What is your name?") #TODO add translation function
+					self.con.commit()
+					self.message = self.translate("What is your name?", user_data['lang']) #TODO add translation function
+					print self.message#TODO remove or something...
 				elif user_data['name'] == 'null':
 					self.name = self.message
 					query = "UPDATE `texters` set name = '" + str(self.name) + "' WHERE phone = " + self.number
 					self.cur.execute(query)
+					self.con.commit()
 					self.message = "Welcome " + self.name + " to see help, type /help, to ask a question, type /ask"
 					
 				else:
 					self.user_data = user_data
 					#ind out language
-					eng = self.from_lang(self.message, 'en',  user_data['lang'])
-					txtcommands.init(end, self.number)
-					self.message = self.from_lang("The doctor has received your message and will be replying shortly", user_data['lang'], 'en')
+					eng = self.translate(self.message, 'en')
+					txtcommands.init(eng, self.number)
+					self.message = self.translate("The doctor has received your message and will be replying shortly", user_data['lang'])
 					
 
 		else:	
 		
 			#TODO create conversation, message 
 			#TODO ask name if name=null, set name in database, then after you check on all that stuff ask what is your question
-			query = "INSERT INTO `texters` (lang, phone) VALUES ('null', '"  + str(self.number) + "')"
+			query = "INSERT INTO `texters` (lang, name, phone) VALUES ('null', 'null', '"  + str(self.number) + "')"
 			self.cur.execute(query) 
 			self.message = "What language do you speak?"
 			self.con.commit()
@@ -124,22 +130,18 @@ class messaging():
 	def get_list(self):
 		lang_list = {
 			'Spanish':'es',
-			'Srench' : 'fr',
+			'French' : 'fr',
 			'Danish' : 'da',
 			'Aymaran' : 'ay',
 			'English' : 'en'
 		}
 		return lang_list
 
-	def find_lang(self, target):	
-		message = self.fix_message(self.message)
-		lang_json = self.get_list()
-			
-		if message not in lang_json:
-			return "en"#When it's invalid default to english
-		else:
-			return lang_json['message']
-	def translate(to_translate, target, source):
+	def find_lang(self, text):	
 		gs = goslate.Goslate()
-		return  gs.translate(to_translate, target_language, source_language)
+		return gs.detect(text)
+	def translate(self, to_translate, target):
+		gs = goslate.Goslate()
+		print "gs.translate(" + to_translate + ", " + target + ")"
+		return  gs.translate(to_translate, target)
 
